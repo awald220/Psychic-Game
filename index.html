@@ -9,99 +9,13 @@
 <div id="game">
     <h1>The Psychic Game</h1>
     <p>Guess what letters I'm thinking of</p>
-    <div id="userGuess"> </div>
-    <div id="wins">Wins: </div>
-    <div id="losses">Losses: </div>
-    <div id="guessesLeft">Remaining Guesses: </div>
-    <div id="usedArray">Your guesses so far:  </div>
+    <div id="userGuess"></div>
+    <div id="wins"></div>
+    <div id="losses"></div>
+    <div id="guessesLeft"></div>
+    <div id="usedArray"></div>
 </div>
   
-
-
-
-    <script type="text/javascript">
-
-        //array of possible letters
-        var letters = ["a","b","c","d","e","f","g","h","i","j","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
-
-        console.log(letters)
-        
-        //randomly chose one of the letters
-        var userGuess = ""
-        var wins = 0;
-        var losses = 0;
-        var guessesLeft = 10;
-        var usedArray = [];
-        var userGuessSpan = document.getElementById("userGuess")
-        var usedArraySpan = document.getElementById("usedArray")
-        //diplay text to users screen.
-        usedArraySpan.textContent = "Your Guesses So Far: " + usedArray
-
-
-        //get random letter
-
-        var randomLetter = Math.floor(Math.random()* letters.length);
-        var computerChoice = letters[randomLetter];
-
-        console.log(computerChoice);
-
-        //add a listner for the user to press a key
-
-        document.onkeyup = function(event) {
-            var userChoice = event.key;
-
-            //make sure user selects a letter that is in the array.
-
-
-           // reset the computer choice if the user loses
-            //if the guess is equal to or less than 0
-            if (guessesLeft === 0){
-                losses++;
-                document.getElementById("losses").innerHTML = losses++;
-                console.log("You Lost!")
-                guessesLeft = 10
-                usedArray = []                
-                document.getElementById(usedArray).innerHTML = usedArray;
-                randomLetter = Math.floor(Math.random() * letters.length);
-                computerChoice = letters[randomLetter];
-                console.log(computerChoice);
-            }
-
-            //if the computer guess and useerguess is the same add a point
-            if (computerChoice === userChoice){
-                console.log("you won!")
-                document.getElementById("wins").innerHTML = wins++;
-                usedArray = [];
-                document.getElementById("usedArray").innerHTML = usedArray;
-                randomLetter = Math.floor(Math.random() * letters.length);
-                computerChoice = letters[randomLetter];
-                console.log(computerChoice);
-                guessesLeft = 9
-                document.getElementById("guessesLeft").innerHTML = 10;
-            }
-            else {
-                console.log("Guess again!")
-                guessesLeft--;
-                document.getElementById("guessesLeft").innerHTML = guessesLeft;
-                usedArray.push(userChoice);
-                document.getElementById("usedArray").innerHTML = usedArray;
-            }
-
-
- 
-        }
-
-
-
-
-
-
-
-
-
-
-        
-        
-    </script>
+<script src="assets/javascript/game.js"></script>
 </body>
 </html>
